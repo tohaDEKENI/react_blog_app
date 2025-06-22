@@ -9,16 +9,19 @@ const Connection = () => {
     const Connection = () => {
         fetch('https://blogzio.glitch.me/singIn', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json' },
             body: JSON.stringify({email: email, password: password })
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.message)
-                console.log(data.token)
-                localStorage.setItem('token',data.token)
-                window.location.href = "/"
-                
+                if(data.token){
+                    localStorage.setItem('token',data.token)
+                    window.location.href = "/"
+                    console.log(data.message)
+                    console.log(data.token)
+                }else{
+                    alert("Echec de connection : "+data.message);
+                }  
             })
     }
 
