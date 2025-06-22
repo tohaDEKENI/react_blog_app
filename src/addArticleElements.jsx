@@ -1,5 +1,5 @@
 import AddArticle from "./components/addArticles"
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 const AddArticleElements = () => {
     return ( 
         <>

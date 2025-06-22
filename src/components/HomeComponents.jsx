@@ -1,6 +1,6 @@
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Articles from "./Articles";
-import { Link } from "react-router-dom";
+
 
 const Home = () => {
 
