@@ -5,11 +5,10 @@ const AddArticle = () => {
     const [auteur, setAuteur] = useState("");
 
     const Enregistrement = () =>{
-        const datePublication = new Date();
-        fetch("http://localhost:3000/articles",{
+        fetch("https://blogzio.glitch.me/creeArticle",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({titre,contenu,auteur,datePublication})
+            body:JSON.stringify({titre,contenu,auteur})
         })
         .then(response =>{
             response.json()
@@ -18,7 +17,8 @@ const AddArticle = () => {
             }
         })
         .then(data => {
-            console.log(data.err);
+            console.log(data);
+            alert(data)
         })
         .catch(err => console.log("erreur"+err))
     }

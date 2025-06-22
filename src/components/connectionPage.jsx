@@ -25,6 +25,7 @@ const Connection = () => {
             })
     }
 
+   
     useEffect(()=>{
         localStorage.removeItem("token")    
     },[])
@@ -54,7 +55,7 @@ const Connection = () => {
                             />
                             <button onClick={Connection} className="bg-blue-700 py-2 px-4">Se connecter</button>
                         </fieldset >
-                        <p className="text-black text-center w-full text-3xl underline"><Link>S'inscrire</Link></p>
+                        <p className="text-black text-center w-full text-3xl underline"><Link to="/inscription">S'inscrire</Link></p>
                     </form>
                 </div>
                 <h1>{username}</h1>

@@ -1,6 +1,7 @@
 import { Cuboid, Moon, Sun } from "lucide-react"
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Inscription from "./Inscription";
 const Navbar = () => {
     const [theme, setTheme] = useState(()=>{
         return localStorage.getItem("theme") || "light"
@@ -12,7 +13,7 @@ const Navbar = () => {
 
     //localStorage.clear()
     const toogleTheme = () => {
-        setTheme((prev) => prev === "light" ? "dark" : "light")
+        setTheme((prev) => prev === "dark" ? "light" : "dark")
     }
     useEffect(()=>{
         const theme = localStorage.getItem("theme")
