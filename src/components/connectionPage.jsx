@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 const Connection = () => {
-    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const Connection = () => {
+        try{
         fetch('https://blogzio.glitch.me/singIn', {
             method: 'POST',
             headers: {'Content-Type': 'application/json' },
@@ -23,6 +23,9 @@ const Connection = () => {
                     alert("Echec de connection : "+data.message);
                 }  
             })
+        }catch(err){
+            alert("erreur")
+        }
     }
 
    
@@ -33,32 +36,28 @@ const Connection = () => {
     return (
         < >
             <div className="h-screen flex items-center justify-center">
-                <div className="flex flex-col space-y-8 w-[600px] h-[520px] bg-gray-50 border rounded-md p-4 shadow-md">
+                <div className="flex flex-col space-y-8 w-[600px] h-[420px] bg-gray-50 border rounded-md p-4 shadow-md">
 
                     <form action="" onSubmit={(e) => e.preventDefault()} className="" >
-                        <fieldset className="flex flex-col space-y-10 border p-4">
+                        <fieldset className="flex flex-col space-y-10 border p-4 text-blue-600 ">
                             <legend>Connection</legend>
-                            <input type="text" className="w-full h-12 border p-2 rounded-md"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder="votre nom"
-                            /> <br />
-                            <input type="text" className="w-full h-12 border p-2 rounded-md"
+                            <input type="text" className="w-full h-12 border p-2 rounded-md bg-gray-200"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Votre email"
+                                required
                             /> <br />
-                            <input type="password" className="w-full h-12 border p-2 rounded-md"
+                            <input type="password" className="w-full h-12 border p-2 rounded-md bg-gray-200"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Votre mot de passe"
+                                required
                             />
-                            <button onClick={Connection} className="bg-blue-700 py-2 px-4">Se connecter</button>
+                            <button onClick={Connection} className="bg-blue-700 py-2 px-4 text-white">Se connecter</button>
                         </fieldset >
                         <p className="text-black text-center w-full text-3xl underline"><Link to="/inscription">S'inscrire</Link></p>
                     </form>
                 </div>
-                <h1>{username}</h1>
             </div>
         </>
     );

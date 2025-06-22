@@ -6,6 +6,7 @@ import AddArticleElements from './addArticleElements'
 import Connection from './components/connectionPage'
 import Auth from './components/auth'
 import Inscription from './components/Inscription'
+import NotFoudPage from './components/notFoudpage'
 
 function App() {
  
@@ -19,6 +20,7 @@ function App() {
           <Route path='/creeArticle' element={<Auth><AddArticleElements /></Auth>}></Route>
           <Route path="/teste" element={<Connection />}></Route>
           <Route path='/inscription' element={<Inscription/>}></Route>
+          <Route path='*' element={<NotFoudPage/>}></Route>
         </Routes>
       </Router>
     </>
